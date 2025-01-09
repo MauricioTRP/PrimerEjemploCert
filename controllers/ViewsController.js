@@ -5,7 +5,11 @@ ViewsController.home = (req, res, next) => {
 }
 
 ViewsController.register = (req, res, next) => {
-  res.render('register', { layout: 'loginLayout' })
+  res.render('register')
+}
+
+ViewsController.admin = (req, res, next) => {
+  res.render('admin')
 }
 
 module.exports = {

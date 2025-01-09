@@ -6,6 +6,8 @@ const UsersController = {}
 UsersController.create = async (req, res, next) => {
   const data = req.body
 
+  delete data.role
+
   try {
     const user = await  User.create(data)
 
