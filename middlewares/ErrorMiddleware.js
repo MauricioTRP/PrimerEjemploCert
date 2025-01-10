@@ -39,7 +39,7 @@ const errorHandler = async (err, req, res, next) => {
   }
 
   if(err?.cause == 'INVALID_CREDENTIALS') {
-    return res.status(401).json({ message: err.message })
+    return res.status(401).redirect('/login')
   }
 
   return res.status(500).json({ message: 'Internal Server Error' })

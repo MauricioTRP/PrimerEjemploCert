@@ -6,6 +6,7 @@ const router = express.Router()
 
 router.get("/", ViewsController.home)
 router.get("/register", ViewsController.register)
+router.get("/login", ViewsController.login)
 
 router.get("/admin", AuthMiddleware, ViewsController.admin)
 
