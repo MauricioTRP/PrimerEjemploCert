@@ -9,7 +9,11 @@ ViewsController.register = (req, res, next) => {
 }
 
 ViewsController.admin = (req, res, next) => {
-  res.render('admin')
+  if(req?.user?.role == 'admin') {
+    return res.render('admin')
+  }
+
+  return res.status(401).redirect('/')
 }
 
 ViewsController.login = (req, res, next) => {

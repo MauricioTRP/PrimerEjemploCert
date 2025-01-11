@@ -41,6 +41,10 @@ module.exports = (sequelize, DataTypes) => {
         min: 6
       }
     },
+    isActive: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
     role: { 
       type: DataTypes.ENUM('skater', 'admin'),
       defaultValue: 'skater'

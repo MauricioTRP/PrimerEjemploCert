@@ -36,6 +36,10 @@ module.exports = {
         type: Sequelize.ENUM('skater', 'admin'),
         defaultValue: 'skater'
       },
+      isActive: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

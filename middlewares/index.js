@@ -1,7 +1,8 @@
 const { errorHandler } = require('./ErrorMiddleware')
-const { AuthMiddleware } = require('./AuthMiddleware')
+const { AuthMiddleware, AdminMiddleware } = require('./AuthMiddleware')
 
 module.exports = {
   errorHandler,
-  AuthMiddleware
+  AuthMiddleware,
+  AdminMiddleware
 }

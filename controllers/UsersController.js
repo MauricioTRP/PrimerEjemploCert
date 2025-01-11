@@ -74,6 +74,20 @@ UsersController.getAllUser = async (req, res, next) => {
   }
 }
 
+UsersController.changeStatus = async (req, res, next) => {
+  const { id } = req.params
+  try {
+    const user = await User.findByPk(id)
+    user.isActive = !user.isActive
+
+    const status = user.isActive ? 'Activado' : 'Desactivado'
+    await user.save()
+    return res.json({ message: `User ${status}` })
+  } catch (err) {
+    next(err)
+  }
+}
+
 // // endpoint protegido
 // // { _id: idUsuarioLogeado }
 // UsersController.findPurchases = async (req, res, next) => {

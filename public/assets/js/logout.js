@@ -10,10 +10,9 @@ logoutBtn.addEventListener("click", async (event) => {
 
     const data = await response.json()
 
-    window.location = '/login'
+    window.location.replace('/login')
   } catch (err) {
     console.error(err)
   }
-
 
 })

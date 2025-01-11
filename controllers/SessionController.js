@@ -29,7 +29,8 @@ SessionsController.login = async (req, res, next) => {
      */
     const signature = CreateSignature({
       _id: user.id,
-      email: user.email
+      email: user.email,
+      role: user.role
     })
 
     console.log(signature)
