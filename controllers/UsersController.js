@@ -1,20 +1,29 @@
 const db = require('../models');
 const { User, Book } = db
+const path = require('node:path')
+const { randomUUID } = require('node:crypto')
+const { promisify } = require('node:util')
 
 const UsersController = {}
 
 UsersController.create = async (req, res, next) => {
   const data = req.body
-
+  const { picture } = req.files
   delete data.role
+  const mvPicture = promisify(picture.mv)
 
   try {
+    const pictureName = randomUUID()  + '.' + picture.name.split('.')[1]
+    await mvPicture(path.join(__dirname, '..', 'public', 'assets', 'img', pictureName ))
+    data.pictureUrl = `./assets/img/${pictureName}`
+
     const user = await  User.create(data)
 
     return res.json(user)
   } catch (err) {
     next(err)
   }
+
 }
 
 UsersController.update = async (req, res, next) => {

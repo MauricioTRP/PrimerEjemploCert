@@ -1,15 +1,23 @@
 <div class="container card">
-  <form id="register" class="my-3">
+  <form id="register" enctype="multipart/form-data" class="my-3">
     {{!-- Nombre --}}
     <div class="mb-3">
       <label for="firstName" class="form-label">Nombre</label>
       <input type="text" class="form-control" id="firstName">
     </div>
     {{!-- Apellido --}}
-      <div class="mb-3">
+    <div class="mb-3">
       <label for="lastName" class="form-label">Apellido</label>
       <input type="text" class="form-control" id="lastName">
     </div>
+    <div class="mb-3">
+      <label for="picture">Foto</label>
+      <input type="text" name="picture" id="picture">
+    </div>
+    {{!-- <div class="mb-3">
+      <label for="url">Foto URL</label>
+      <input type="file" name="picture" id="url">
+    </div> --}}
     <div class="mb-3">
       <label for="email" class="form-label">Email address</label>
       <input type="email" class="form-control" id="email" aria-describedby="emailHelp">

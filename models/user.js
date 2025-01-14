@@ -48,8 +48,10 @@ module.exports = (sequelize, DataTypes) => {
     role: { 
       type: DataTypes.ENUM('skater', 'admin'),
       defaultValue: 'skater'
+    },
+    pictureUrl: {
+      type: DataTypes.STRING
     }
-
   }, {
     sequelize,
     modelName: 'User',

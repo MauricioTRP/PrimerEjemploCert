@@ -24,6 +24,7 @@ const generateUsersTable = (data) => {
     <div class="col-sm-12 col-md-6 col-lg-6 card">
         <div class="container d-flex justify-content-evenly">
             <div class="align-content-center" style="width: 35% ">
+              <img src="${user.pictureUrl}" class="img-fluid img-thumbnail"/>
               <h4 class="text-warning card-title text-center">${user.firstName + ' ' + user.lastName}</h4>
               <div class="text-center mb-1">
                 <button type="button" class="btn btn-secondary btn-sm" id="${user.id}" data-user="${user.id}">Modificar</button>

@@ -3,6 +3,7 @@ const { UsersRouter, ViewsRouter, SessionRouter } = require('./routers')
 const { errorHandler } = require('./middlewares')
 const cookieParser = require('cookie-parser')
 const { engine } = require('express-handlebars')
+const fileUpload = require('express-fileupload')
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -13,6 +14,7 @@ app.set('views', './views');
 
 app.use(cookieParser())
 app.use(express.json())
+app.use(fileUpload());
 app.use(express.static('public'));
 app.use(express.static('node_modules/bootstrap/dist'))
 

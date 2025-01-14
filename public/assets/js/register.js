@@ -5,22 +5,24 @@ const form = document.querySelector('#register')
 form.addEventListener("submit", async (event) => {
   event.preventDefault()
 
-  let { firstName, lastName, email, password } = event.target
-  
-  firstName = firstName.value
-  lastName = lastName.value
-  email = email.value
-  password = password.value
+  const form = event.target
+  let { firstName, lastName, email, password, picture } = event.target
+  const formData = new FormData()
+
+  formData.append("firstName", firstName.value)
+  formData.append("lastName", lastName.value)
+  formData.append("email", email.value)
+  formData.append("password", password.value)
+  formData.append("picture", picture.files[0])
 
   try {
-    const response = await fetch('/users', {
+    const fileResponse = await fetch('/users', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ firstName, lastName, email, password })
+      body: formData
     })
 
-    const data = await response.json()
-    console.log(data)
+    const dataFile = await fileResponse.json()
+    console.log(dataFile)
   } catch (err) {
     console.error(err)
   }
